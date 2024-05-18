@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Evolution Practice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <link href="src/bc.css" rel="stylesheet">
+    <meta name="description" content="Comparing bones with canvas">
+    <nav>
+        <ul>
+            <li><a href="index.html">Ungulates, "Mammals with Hooves"</a></li>
+            <li><a href="Quiz.html">Practice Quiz</a></li>
+			<li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</head>
+
+<body>
+    <div class="center-text" style="text-align: center;">
+        <h2>We look forward to hearing from you!</h2>
+        <p>Please contact us for more information with questions or feedback</p>
+        <div class="form">
+            <form action="https://formsubmit.co/jawn.priest100@gmail.com" method="POST" target="_blank>
+                <h3>Communicate with us below:</h3>
+                <p style="margin: 0%;">Name:</p>
+                <label for="name"></label>
+                <input type="text" id="name" name="name" required>
+                <p style="margin: 0%;">Email:</p>
+                <label for="email"></label>
+                <input type="email" id="email" name="email" required>
+                <p style="margin: 0%;">Message:</p>
+                <label for="message"></label>
+                <textarea id="message" name="message" maxlength="300" rows="4" cols="50"
+                    required></textarea>
+                <p style="margin: 2, 0;">You can expect us to respond within an hour to a day, and thank you
+                    for taking the time to message us.</p>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+    <footer>
+        <p></p>
+    </footer>
+<script>
+    function handleAnswerSelection(questionId, correctAnswer) {
+                        const questionElement = document.getElementById(questionId);
+                        const radioButtons = questionElement.querySelectorAll('input[type="radio"]');
+                        const feedbackElement = questionElement.querySelector('p[id^="feedback"]');
+
+                        for (const radioButton of radioButtons) {
+                            radioButton.addEventListener('click', () => {
+                                if (radioButton.value === correctAnswer) {
+                                    feedbackElement.textContent = "Correct!";
+                                } else {
+                                    feedbackElement.textContent = "Incorrect. Please try again.";
+                                }
+                            });
+                        }
+                    }
+    handleAnswerSelection("question1", "a");
+</script>
+</body>
+
+</html>

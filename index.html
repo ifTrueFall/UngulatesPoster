@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <title>Evolution Practice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <link href="src/bc.css" rel="stylesheet">
+    <meta name="description" content="Diving into learning about Ungulate Mammals!">
+    <nav>
+        <ul>
+            <li><a href="index.html">Ungulates, "Mammals with Hooves"</a></li>
+            <li><a href="Quiz.html">Practice Quiz</a></li>
+			<li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <script>
+		function changeImage(src) {
+			document.getElementById('main-image').src = src;
+			var productNumber = src.split('product')[1].split('.')[0];
+			document.getElementById('main-link').href = "Product" + productNumber + ".html";
+		}
+	
+		function handleClick(event) {
+			const buttons = document.querySelectorAll('button');
+			buttons.forEach(button => {
+				button.classList.remove('active');
+			});
+			event.target.classList.add('active');
+		}
+	</script>
+</head>
+
+<body>
+    <div class="ChimpvsHuman">
+        <h1>Chimp vs Human</h1>
+		<p> Closest relative are, gorilla, chimpanzees, orangutans, with chimpanzees being the most closest to the hominin decendancy </p>
+        <div class="Cquestions">
+            <div class="question-container">
+                <div id="question1">
+                    <p>Q1. True or false; Hominid, is human ancestory up to and including apes. <br /> Hominin, is Human ancestor after seperation of the chimps </p>
+                    <ul>
+                        <input type="radio" id="answer1a" name="question1" value="a"> A. True
+                        <br />
+                        <input type="radio" id="answer1b" name="question1" value="b"> B. False
+                        <br />
+                    </ul>
+                    <p id="feedback1"></p>
+                </div>
+            </div>
+        </div>
+        <div class="slideshow-container">
+            <a id="main-link" href="ImageName.html">
+                <img id="main-image" src="src/ImageName.png" alt="Main Image">
+            </a>
+            <div class="thumbnail-container">
+                <img class="thumbnail" src="src/ImageName.png" alt="Thumbnail 1"
+                    onclick="changeImage('src/ImageName.png')">
+                <img class="thumbnail" src="src/ImageName.png" alt="Thumbnail 2"
+                    onclick="changeImage('src/ImageName.png')">
+                <img class="thumbnail" src="src/ImageName.png" alt="Thumbnail 3"
+                    onclick="changeImage('src/ImageName.png')">
+                <img class="thumbnail" src="src/ImageName.png" alt="Thumbnail 4"
+                    onclick="changeImage('src/ImageName.png')">
+                <img class="thumbnail" src="src/ImageName.png" alt="Thumbnail 5"
+                    onclick="changeImage('src/ImageName.png')">
+                <img class="thumbnail" src="src/ImageName.png" alt="Thumbnail 6"
+                    onclick="changeImage('src/ImageName.png')">
+            </div>
+        </div>
+        <div class="side-by-side-container" style="display: flex; border: 5px solid black; box-shadow: 1px; border: 1px solid black; box-shadow: 1px; width: 100%; height: 1150px; float: right; background-color: #857d60;">
+            <div class="canvas-container" style="border: 1px solid black; box-shadow: 1px; width: 70%; height: 550px; float: left;"> 
+                    <img src="src/ImageName.jpg" alt="PictureId" style="width: 100%; height: 100%;">
+                    <img src="src/ImageName.jpg" alt="PictureId" style="width: 100%; height: 100%;">
+                </div>
+            <div class="list" style="border: 1px solid black; box-shadow: 1px; width: 50%; height: 1150px; float: right;">
+                <h2>Bipedalism</h2>
+                <ul>
+                    <li><u>Pelvis</u> <br/>
+						Chimp, flat and tall
+						Humans, Bowl-shaped and short top view
+					</li><br />
+                    <li><u>Hip sockets</u> <br />
+					Chimps, face outward<br />
+						Humans, angled downard
+					</li><br />
+                    <li><u>Knee joint</u> <br />
+					chimp, The median plane of the femur bone is close to a 90 degree angle based on the socket of the pelvis<br />
+						humans, The median plane of the femur bone is further from 90 degrees based on the socket of the pelvis
+					</li><br />
+                    <li><u>Foramen magnum</u>, <br />the opening to the cranium that connects to the spinal cord <br />
+					chimp, more slanted to the back of the skull <br />
+						humans, toward the bottom of the skull
+					</li><br />
+                    <li><u>Thumb length</u>,<br /> relative to the middle finger <br />
+					chimp, <= 40% of middle finger <br />
+					humans, >= 50% of the middle finger 
+					</li>
+                </ul>
+            </div>  
+        </div>
+    </div>
+</body>
+
+    <footer>
+        <p></p>
+    </footer>
+<script>
+    function handleAnswerSelection(questionId, correctAnswer) {
+                        const questionElement = document.getElementById(questionId);
+                        const radioButtons = questionElement.querySelectorAll('input[type="radio"]');
+                        const feedbackElement = questionElement.querySelector('p[id^="feedback"]');
+
+                        for (const radioButton of radioButtons) {
+                            radioButton.addEventListener('click', () => {
+                                if (radioButton.value === correctAnswer) {
+                                    feedbackElement.textContent = "Correct!";
+                                } else {
+                                    feedbackElement.textContent = "Incorrect. Please try again.";
+                                }
+                            });
+                        }
+                    }
+    handleAnswerSelection("question1", "a");
+</script>
+</body>
+
+</html>
